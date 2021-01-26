@@ -1,0 +1,15 @@
+{
+  "name": "electron-tut-quickstart",
+  "version": "1.0.0",
+  "description": "Learn electron!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "yongjie",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^11.2.1"
+  }
+}
