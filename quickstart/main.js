@@ -1,4 +1,5 @@
 const {app, BrowserWindow, Notification } = require('electron')
+const RECENT_DOC = "demo.md"
 
 /** function that creates a new window and load html file */
 function createWindow(){
@@ -25,8 +26,14 @@ function showNotification(){
     new Notification(notificationOpt).show()
 }
 
-// when the application is ready, create the window
+// when the application is ready, create the window, and show a notification
 app.whenReady().then(createWindow).then(showNotification)
+
+// add a recent document, only works for windows and macos
+app.addRecentDocument(RECENT_DOC)
+
+// to clear the list of recent doc, only works for windows and macos
+app.clearRecentDocuments()
 
 // quit on "window-all-closed" event
 app.on('window-all-closed', () => {
