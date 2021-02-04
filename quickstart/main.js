@@ -1,4 +1,4 @@
-const {app, BrowserWindow } = require('electron')
+const {app, BrowserWindow, Notification } = require('electron')
 
 /** function that creates a new window and load html file */
 function createWindow(){
@@ -17,8 +17,16 @@ function createWindow(){
     window.loadFile('index.html')
 }
 
+function showNotification(){
+    const notificationOpt = {
+        title: 'Basic Notification',
+        body: 'Simple notification from the main process'
+    }
+    new Notification(notificationOpt).show()
+}
+
 // when the application is ready, create the window
-app.whenReady().then(createWindow)
+app.whenReady().then(createWindow).then(showNotification)
 
 // quit on "window-all-closed" event
 app.on('window-all-closed', () => {
